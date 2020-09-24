@@ -1,5 +1,7 @@
 # ON / OFF Blocks
 
+![Image showing ON OFF Blocks](docs/ON_OFF.png)
+
 # Pre-Requisites
 1. Backup your ROM before continuing <3
 1. Unlock 8x8 ExGFX using `CTRL`+`SHIFT`+`PgDn`
@@ -10,6 +12,10 @@
 1. Create `ONOFF` directory in your ROM's `GPS/blocks/` directory
 1. Place ASM for each block in new `ONOFF` directory
     * `GPS/blocks/ONOFF/*.asm`
+    * [ONOFF_ON.asm]
+    * [ONOFF_OFF.asm]
+    * [ONOFF_ONDEATH.asm]
+    * [ONOFF_OFFDEATH.asm]
 1. Append the list contained `list.txt` to the ROM's GPS `list.txt` (or start a new one)
 1. Confirm tile numbers referenced in `list.txt` are free in 16x16 Editor
     * 310, 311, 312, 313 are used in this example
@@ -62,6 +68,12 @@
 1. [Blockreator] is a tool that can help you generate ASM for other, new blocks
 1. [This graphics tutorial][gfxtut] has much more information on ExGFX and ExAnimated, etc
 1. Special thanks to [jesusgeuse] for helping me fit some of this together
+
+
+[ONOFF_ON.asm]: https://github.com/earthmeLon/nrg-snes-docs/raw/master/smw/ON_OFF/ONOFF_ON.asm
+[ONOFF_OFF.asm]: https://github.com/earthmeLon/nrg-snes-docs/raw/master/smw/ON_OFF/ONOFF_OFF.asm
+[ONOFF_ONDEATH.asm]: https://github.com/earthmeLon/nrg-snes-docs/raw/master/smw/ON_OFF/ONOFF_ONDEATH.asm
+[ONOFF_OFFDEATH.asm]: https://github.com/earthmeLon/nrg-snes-docs/raw/master/smw/ON_OFF/ONOFF_OFFDEATH.asm
 
 
 [Blockreator]: https://www.smwcentral.net/?p=section&a=details&id=20129
