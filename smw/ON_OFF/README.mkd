@@ -1,0 +1,69 @@
+# ON / OFF Blocks
+
+# Pre-Requisites
+1. Backup your ROM before continuing <3
+1. Unlock 8x8 ExGFX using `CTRL`+`SHIFT`+`PgDn`
+1. Export GFX and ExGFX of ROM in Lunar Magic
+
+
+## Add the Blocks to the ROM
+1. Create `ONOFF` directory in your ROM's `GPS/blocks/` directory
+1. Place ASM for each block in new `ONOFF` directory
+    * `GPS/blocks/ONOFF/*.asm`
+1. Append the list contained `list.txt` to the ROM's GPS `list.txt` (or start a new one)
+1. Confirm tile numbers referenced in `list.txt` are free in 16x16 Editor
+    * 310, 311, 312, 313 are used in this example
+1. Use GPS to load in ONOFF blocks into ROM
+
+
+## Add the GFX to the ROM
+1. Open ROM in Lunar Magic
+1. Place `ExGFX60.bin` in `ExGraphics` directory
+1. "Reload Graphics" in Lunar Magic
+
+
+## Create ExAnimated Tiles from new GFX
+1. Open 8x8 Tile Editor
+1. Find empty Tile Address
+    * **200** is where we start in this example
+1. Find newly provided graphics location
+    * **C20** is the starting address for the first graphic
+    * ![8x8 Source Images](docs/8x8-Source.png)
+1. Add four ExAnimated entries, one for each toggle
+    * **1** frame to prevent animation when not being toggled
+    * First frame is  your first state's graphic's starting address (ie: ON, OFF)
+    * Second frame is your second state's graphic's starting address (ie: OFF, ON)
+    * `Destination` should match free tiles found in previous step
+    * ![First ExAnimated Entry](docs/ExAnimated-01.png)
+    * ![Second ExAnimated Entry](docs/ExAnimated-02.png)
+    * ![Third ExAnimated Entry](docs/ExAnimated-03.png)
+    * ![Fourth ExAnimated Entry](docs/ExAnimated-04.png)
+1. Confirm ExAnimated graphics have been added
+    * ![8x8 Animated Tiles](docs/8x8-Results.png)
+
+
+## Update added Blocks to use ExAnimated tiles
+1. Open the 16x16 Editor
+1. Find the four newly added Blocks
+    * 310, 311, 312, 313
+1. Adjust these new Blocks' graphics
+    * 200, 201, 202, 203
+    * 204, 205, 206, 207
+    * 208, 209, 20A, 20B
+    * 20C, 20D, 20E, 20F
+    * ![First New Block Example](docs/16x16.png)
+
+
+
+
+## Notes
+
+1. I did not create these graphics and do not claim them as my own
+1. [Blockreator] is a tool that can help you generate ASM for other, new blocks
+1. [This graphics tutorial][gfxtut] has much more information on ExGFX and ExAnimated, etc
+1. Special thanks to [jesusgeuse] for helping me fit some of this together
+
+
+[Blockreator]: https://www.smwcentral.net/?p=section&a=details&id=20129
+[gfxtut]: https://www.smwcentral.net/?p=viewthread&t=77300#part3
+[jesusgeuse]: https://twitch.tv/jesusgeuse
